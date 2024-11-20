@@ -17,6 +17,11 @@ function flipCard() {
         console.log(secondCard.dataset.framework);
         hasFlippedCard = false;
     }
+
+    if (firstCard.dataset.framework === secondCard.dataset.framework) {
+        firstCard.removeEventListener('click', flipCard);
+        secondCard.removeEventListener('click', flipCard);
+    } 
 }
 
 
