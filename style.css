@@ -20,6 +20,7 @@ img {
     width: 720px;
     height: 720px;
     flex-wrap: wrap;
+    perspective: 1000px;
 }
 
 .memory-card {
@@ -29,11 +30,17 @@ img {
     margin: 5px;
     position: relative;
     transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
 }
 
 .memory-card:active {
     transform: scale(0.97);
     transition: transform 0.2s;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
 }
 
 .front-face,
@@ -46,4 +53,8 @@ img {
     transition: transform 1s;
     transform-style: preserve-3d;
     border-radius: 6px; 
+}
+
+.front-face {
+    transform: rotateY(180deg);
 }
